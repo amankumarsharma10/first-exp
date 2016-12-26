@@ -1,0 +1,35 @@
+Download Maven "Binary zip archive" from https://maven.apache.org/download.cgi
+extract into C:\TOOLS\
+
+Maven setUP in Environment Variable
+	JAVA_HOME  =  C:\Program Files\Java\jdk1.8.0_31
+	MAVEN_HOME  =  C:\TOOLS\apache-maven-3.3.9
+	path =  ;%MAVEN_HOME%\bin;
+
+
+Proxy Setting(If required)
+	GO TO => C:\Users\aman\.m2\
+	inside .m2 folder create file settings.xml
+
+	Paste below content into settings.xml
+
+	<!-- START -->
+	<?xml version="1.0" encoding="UTF-8"?>
+	<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+	<proxies>
+		<proxy>
+			<id>optional</id>
+			<active>true</active>
+			<protocol>http</protocol>
+			<host>172.N.N.N</host>
+			<port>8080</port>
+			<username>aman</username>
+			<password>****</password>
+			<nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+		</proxy>
+	</proxies>
+	</settings>
+	<!-- END -->
+
+TEST=> open CMD & run => mvn -v
+

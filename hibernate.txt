@@ -1,0 +1,100 @@
+Using foreign key association
+	In hibernate there are 3 ways to create one-to-one relationships between two entities.
+
+Using foreign key association
+	In this association, a foreign key column is created in owner entity. 
+	To make such association, refer the account entity in EmployeeEntity class as follow:
+	
+	@OneToOne
+	@JoinColumn(name="ACCOUNT_ID")
+	private AccountEntity account;
+	
+	The join column is declared with the @JoinColumn annotation which looks like the @Column annotation. It has one more parameters named referencedColumnName.
+	
+	In a bidirectional relationship, one of the sides (and only one) has to be the owner: the owner is responsible for the association column(s) update.
+	To declare a side as not responsible for the relationship, the attribute mappedBy is used. 
+	
+	@OneToOne(mappedBy="account")
+	private EmployeeEntity employee;
+	Above “mappedBy” attribute declares that it is dependent on owner entity for mapping.
+	
+
+Using a common join table
+	In this technique, main annotation to be used is @JoinTable. This annotation is used to define the new table name (mandatory) and foreign keys from both of the tables.
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinTable(name="EMPLOYEE_ACCCOUNT", joinColumns = @JoinColumn(name="EMPLOYEE_ID"),
+	inverseJoinColumns = @JoinColumn(name="ACCOUNT_ID"))
+	private AccountEntity account;
+	
+Using shared primary key
+	In this technique, hibernate will ensure that it will use a common primary key value in both the tables.
+	This way primary key of EmployeeEntity can safely be assumed the primary key of AccountEntity also.
+	In this approach, @PrimaryKeyJoinColumn is the main annotation to be used.Let see how to use it.
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private AccountEntity account;
+	
+	In AccountEntity side, it will remain dependent on owner entity for the mapping.
+	
+	@OneToOne(mappedBy="account", cascade=CascadeType.ALL)
+	private EmployeeEntity employee;
+	
+
+OneToMany Using foreign key association Bidirectional
+	
+	For Exp: One Book have many Author
+	Class Book{
+		@OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+		private List<Author> authors;
+	}
+	Class Author{
+		@ManyToOne(cascade = CascadeType.ALL)
+    		@JoinColumn(name = "book_id",referencedColumnName = "bookId",nullable = false)
+		private Book book;
+
+	}
+	
+
+	NOTE:	Here It'll create one extra column in author table "book_id"
+
+
+
+OneToMany Using foreign key association Unidirectional
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+Entity / Persistence LifeCycle States
+	Given an instance of an object that is mapped to Hibernate, 
+	it can be in any one of four different states: 
+	transient, 
+	persistent, 
+	detached, 
+	removed
+	
+Transient Object
+	Transient objects exist in heap memory. Hibernate does not manage transient objects or persist changes to transient objects.
+	Transient objects are independent of Hibernate.
+	To persist the changes to a transient object, you would have to ask the session to save the transient object to the database, 
+	at which point Hibernate assigns the object an identifier and marks the object as being in persistent state.
+
+Persistent Object
+	Persistent objects exist in the database, and Hibernate manages the persistence for persistent objects.
+	Persistent objects are maintained by Hibernate.
+	
+Detached Object
+	Detached objects have a representation in the database, but changes to the object will not be reflected in the database, and vice-versa.
+	This temporary separation of the object.
+	
+	
