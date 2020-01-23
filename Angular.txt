@@ -1,0 +1,33 @@
+download :
+-------------
+ Terminal : https://hyper.is/
+ Editor : Visual Studio Code	
+
+Install
+-------------
+npm install -g @angular/cli
+
+after installation
+------------------------------
+ng version
+ 
+Test creation of new Project with --dry-run
+-------------------- 
+ng new my-demo-app --routing --style=scss --inline-style --inline-template --skip-install --dry-run
+
+Create New Project
+-------------------- 
+ng new my-demo-app --routing --style=scss --inline-style --inline-template --skip-install 
+
+
+to install dependency
+--------------------------
+cd my-demo-app
+npm install
+
+==============================
+To Run Application need 
+==============================
+ng serve -open
+OR
+ng s -o

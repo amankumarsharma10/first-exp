@@ -1,0 +1,9 @@
+Spring Microservices
+-------------------------
+Designed for machine to machine interaction
+should be interoperable - not Plateform dependent
+Should allow communication over network
+
+Logging 
+------------------
+logging.level.org.springframework=debug

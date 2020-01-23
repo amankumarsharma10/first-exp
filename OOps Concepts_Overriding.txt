@@ -1,0 +1,197 @@
+Overriding
+-------------------------------------------------
+Co-Variant return type::
+	In case of Method Overriding we can take Co-Variant return type.
+	According to this child class method return type need not same as Parent class method return type, Its child type also allowed.
+	Co-Variant return type only valid for Object Type, it is not valid for Primitive type.In case of primitive 
+	This comes in Java 1.5.
+	
+	Exp:
+	class A1 {
+		public Object m1() {
+			System.out.println("A:: Object::m1");
+			return null;
+		}
+	}
+	class B1 extends A1 {
+		public String m1() {
+			System.out.println("B:: String::m1");
+			return null;
+		}
+	}
+	
+	Exp2:
+	class A1 {
+		public double m1() {
+			System.out.println("A:: double::m1");
+			return null;
+		}
+	}
+	class B1 extends A1 {
+		public int m1() {
+			System.out.println("B:: int::m1");
+			return null;
+		}
+	}
+	Compile Time Error:: The return type is incompatible with A1.m1() at overriding.B1.m1
+	
+	Exp3:
+	class A1 {
+		public int m1() {
+			System.out.println("A:: double::m1");
+			return null;
+		}
+	}
+	class B1 extends A1 {
+		public int m1() {
+			System.out.println("B:: int::m1");
+			return null;
+		}
+	}
+	No Error
+	
+// If Parent class method is private then this is not overriding 
+	Exp4: No Error
+	class A3 {
+		private final void m1() {
+			System.out.println("A:: m1");
+		}
+	}
+	class B3 extends A3 {
+		public void m1() {
+			System.out.println("B:: m1");
+		}
+	}
+	
+	
+//Parent Class method is public and this is not overriding & final method  can't override
+	Exp5:  Error :: Cannot override the final method from A4
+	class A4 {
+		public final void m1() {
+			System.out.println("A:: m1");
+		}
+	}
+	class B4 extends A4 {
+		public void m1() { 
+			System.out.println("B:: m1");
+		}
+	}
+
+//Override Parent class non abstract method as abstract in child class
+	We can stop the availability of parent class method implementation to next level child classes. 
+	Exp1: No Error
+	class A5 {
+		public void m1() {
+		}
+	}
+	abstract class B5 extends A5 {
+		public abstract void m1();
+	}
+	
+	Exp2: No error
+	abstract class A5 {
+		abstract public void m1();
+	}
+	class B5 extends A5 {
+		public void m1(){
+		}
+	}
+	
+//Access Modifier
+	Scope :: private < default < protected < public	
+	A.	default to private
+	B.	protected to private
+	C.	protected to default
+	D.	public to default
+	E.  public to protected
+	F.	public to private
+	G.  For parent class private method overriding is not applicable  
+	
+	All above cases will give Error:
+	//Cannot reduce the visibility of the inherited method from A6
+		class A6{
+			public void m1() {
+				System.out.println("B:: m1");
+			}
+		}
+		class B6 extends A6{
+			private void m1() { 
+				System.out.println("B:: m1");
+			}
+		}
+		Compile Time Error:: //Cannot reduce the visibility of the inherited method from A6
+	
+// If Child class throws any checked exception then Parent Class must throw same exception or its Parent exception.
+// For unchecked exception this rules doesn't applicable
+	Exp1: Parent Class throws Checked Exception
+	class A7 {
+		void m1() throws IOException { 
+		}
+	}
+	class B7 extends A7 {
+		void m1() {
+		}
+	}
+	No Error.
+	
+	Exp2: Child Class throws Checked Exception
+	If Child Class throws Checked Exception then Parent class method must throw same or Parent class exception
+	class A7 {
+		void m1(){ 
+		}
+	}
+	class B7 extends A7 {
+		void m1() throws IOException{
+		}
+	}
+	Compile Time Error ::Exception: Exception is not compatible with throws clause 
+	
+// In case Of Method Hiding both parent and child class method should be static.
+	If in one Class method is static and another class method is non static then it will give compile time error.
+
+	Exp1: Method Hiding
+	class A8{
+		public static void m1() {
+			System.out.println("Parent");
+		}
+	}
+	class B8 extends A8{
+		public static void m1(){  
+			System.out.println("Child");
+		}
+	}
+	public class Test{
+		public static void main(String[] args) {
+			B8 b =new B8();
+			b.m1();
+			A8 a =new B8();
+			a.m1();
+		}
+	}
+	OUTPUT::	Child
+				Parent
+
+	
+--------------------------------------------------------------------------
+Overriding with respect to variable.
+ 
+ 
+ //Parent class reference can be used to hold child object but by using that reference we can call only the method available in parent class. With Parent ref we can't call child class method.
+	Exp::
+		class A11{
+			public void m1() {
+			}
+		}
+		class B11 extends A11{
+			public void m2() {
+			}
+		}
+		class C11{
+			public static void main(String[] args) {
+				A11 a= new B11();		
+				a.m2();// Error:: We can't access child class method with parent class reference.
+			}
+		}
+		Error:: The method m2() is undefined for the type A11
+
+

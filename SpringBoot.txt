@@ -1,0 +1,44 @@
+SPring Boot
+	Spring Boot, Spring, Spring MVC, Each have seperate responsibility 
+	Spring Boot is use to configure spring and spring mvc.
+	
+	-- Less Configuration
+		No need to configure below
+			1.@ComponentScan
+			2.Dispatcher Servlet
+			3.Data Source
+			4.Transaction Manager
+	-- Monitoring, Quick Start, Error Handling 
+	-- No Code Generation
+	Features...
+	-- Auto Configuration
+	-- Spring Boot Starter Project
+	-- Actuator (Used for Monitoring)
+	-- Embedded Server
+
+@SpringBootApplication
+	-- @SpringBootConfiguration --It tells -> This is going to create spring context
+	-- @EnableAutoConfiguration 
+	-- @ComponentScan (turns on ComponentScan from current package)
+
+AutoConfiguration
+	This is implemented in spring-boot-autoconfigure.jar
+
+Embedded Server
+	
+Starter Parent project
+	It has another parent called spring boot dependencies
+	Java Version
+
+application.properties
+	logging.level.org.springframework=DEBUG
+	security.basic.enabled=false
+  Incase multiple profile(application-prod.properties or application-qa.properties)
+	spring.profile.active=prod
+ 
+ 
+Spring Boot Actuator
+	This is used to monitor the application
+	It exposes lot of service
+		/env, /metrics, /trace, /beans, /autoconfig, /mapping, /application
+		

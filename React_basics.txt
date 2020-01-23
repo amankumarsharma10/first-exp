@@ -1,0 +1,52 @@
+Open Visual Studio Code
+Go to extension -> search for 
+	1.	"Simple React Snippets" install it
+	2.  "Prettier - Code formatter" install it
+Theame:
+Night Owl
+
+//----------------------------------//
+Proxy Setting 
+	npm config set https-proxy  http://www-proxy.us.oracle.com:80
+npm install -g create-react-app
+	it will install..
+		1. 	Developement Server
+		2.	Webpack (for bundling file)
+		3.	Babel	(for compling javascript code)
+		....
+create-react-app --version
+
+npm cache clean --force
+
+npx create-react-app reactdemo
+
+cd my-app
+npm start
+    Starts the development server.
+  npm run build
+    Bundles the app into static files for production.
+  npm test
+    Starts the test runner.
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+cd my-app
+  npm start
+
+
+
+favicon > shortcut icon
+
+CSS3
+---------
+E[foo="bar"]
+ p[align="right"]
+ [] ->borrow fromxpath
+ . -> class
+ # -> id
+ : -> sudoclass
+ 
+New Vesrion of XMLHttpRequest()
+
+IETF
+	

@@ -1,0 +1,123 @@
+Functional Interface
+---------------------------------
+Pre-defined Functional Interface
+---------------------------------
+->4 TYPES
+1. Predicate<T> 	Functional Interface
+2. Function<T,R> 	Functional Interface
+3. Consumer<T> 		Functional Interface
+4. Supplier<R> 		Functional Interface
+
+
+Predicate Functional Interface
+-------------------------------
+Predicate function that will take one input and returns boolean value.
+This interface allows only one Abstract method within the Interface scope.
+Predicate function returns boolean value.
+it present in java.util.fuction package
+
+
+interface Predicate<T>
+{
+	public boolean test(T t);
+	
+}
+
+class PredicateDemo implements Predicate<Integer>{
+	public boolean test(integer I){
+		if(I < 10)
+			return true;
+		else return false;
+	}
+}
+-----------------------
+OR
+-----------------------
+Predicate<Integer> p = I -> (I < 10);
+p.test(9); //true
+
+import java.util.Predicate;
+class Test{
+	public static void main(String[] args) {
+		Predicate<Integer> p = I -> I < 10;
+		p.test(9); 
+	}
+}
+
+
+-----------------------------------------
+Increment All employee salary whose salary < 10000 and experience > 3.5Yr 
+
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+Predicate Joining
+-----------------------------------------
+These are 3 defaults methods inside Predicate<T> interface
+and()
+or()
+negate()
+
+1 static methods
+--------------------------------
+static <T> Predicate<T> isEqual(Object targetRef)
+
+
+======================================================================================
+======================================================================================
+
+Function is a Functional interface contains only one abstract method apply().
+It will one input and some output
+
+interface Function<T,R>{
+	public R apply(T t);
+}
+
+
+======================================================================================
+======================================================================================
+
+Consumer interface
+it will take one parameter and would not return anything
+it has accept(T t) method.
+------------------------------
+
+interface consumer<T> {
+	void accept(T t);
+}
+
+Consumer<String> c = s -> System.out.print(s);
+c.accept("Hello"); // it will print Hello
+
+
+======================================================================================
+======================================================================================
+
+Supplier interface
+it will not take input but return any type of value.
+it has  R get() method has return type R.
+------------------------------
+interface Supplier<R> {
+	R get();
+}
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+2 input Argument Functional interface
+-------------------------------
+BiPredicate
+BiFunction
+BiConsumer
+
+
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+Primitive Type Functional Interface
+-----------------------------------
+IntPredicate
+LongPredicate
+DoublePredicate
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------

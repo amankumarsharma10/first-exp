@@ -1,0 +1,210 @@
+Exception
+====================================================
+What Is an Exception
+What Is an Error & Example?
+Diffeence B/W Exception and Error
+What Is the Purpose of the Throw and Throws Keywords?
+What Is the Difference Between a Checked and an Unchecked Exception?
+How can you handle an exception?
+Explain the Java exception hierarchy.
+How can you catch multiple exceptions?
+What is the OutOfMemoryError in Java?
+What are chained exceptions in Java?
+How do you write a custom exception in Java?
+What is the difference between final, finally, and finalize in Java?
+What happens when an exception is thrown by the main method?
+What is a try-with-resources statement?
+What is a stacktrace and how does it relate to an exception?
+What are the advantages of Java exceptions?
+Can you throw any exception inside a lambda expression’s body?
+What are the rules that we need to follow when overriding a method that throws an exception?
+What are some of the exception handling best practices?
+
+
+
+Collection 
+====================================================
+What are Collection related features in Java 8?
+Why Collection doesn’t extend Cloneable and Serializable interfaces?
+Why Map interface doesn’t extend Collection interface?
+What is an Iterator?
+What is Comparable and Comparator interface?
+What is difference between Comparable and Comparator interface?
+
+
+Why there is not method like Iterator.add() to add elements to the collection?
+Why Iterator don’t have a method to get next element directly without moving the cursor?
+
+How can we sort a list of Objects?
+What is different between Iterator and ListIterator?
+What are different ways to iterate over a list?
+What do you understand by iterator fail-fast property?
+What is difference between fail-fast and fail-safe?
+How to avoid ConcurrentModificationException while iterating a collection?
+Why there are no concrete implementations of Iterator interface?
+What is UnsupportedOperationException?
+
+What are similarities and difference between ArrayList and Vector?
+What is difference between Array and ArrayList? When will you use Array over ArrayList?
+What is difference between ArrayList and LinkedList?
+Which collection classes provide random access of it’s elements?
+Which collection classes are thread-safe?
+
+What are concurrent Collection Classes?
+What is BlockingQueue?
+What is Queue and Stack, list their differences?
+What are common algorithms implemented in Collections Framework?
+What is Big-O notation? Give some examples?
+What are best practices related to Java Collections Framework?
+What is Java Priority Queue?
+Why can’t we write code as List<Number> numbers = new ArrayList<Integer>();?
+Why can’t we create generic array? or write code as List<Integer>[] array = new ArrayList<Integer>[10];
+------
+How HashMap works in Java?
+What is the importance of hashCode() and equals() methods?
+Can we use any class as Map key?
+What is difference between HashMap and Hashtable?
+How to decide between HashMap and TreeMap?
+Why we use Map interface? What are main classes implementing Map interface?
+What are IdentityHashMap and WeakHashMap?
+Explain ConcurrentHashMap? How it works?
+How hashmap works?
+How to design a good key for hashmap?
+What are different Collection views provided by Map interface?
+When to use HashMap or TreeMap?
+--
+HashMap and ConcurrentHashMap interview questions
+
+1. How you will design a good key for HashMap?
+2. Difference between HashMap and ConcurrentHashMap?
+3. Difference between HashMap and Collections.synchronizedMap(HashMap)?
+4. Difference between ConcurrentHashMap and Collections.synchronizedMap(HashMap)?
+5. Difference between HashMap and HashTable?
+6. Difference between HashTable and Collections.synchronized(HashMap)?
+7. Impact of random/fixed hashCode() value for key?
+8. Using HashMap in non-synchronized code in multi-threaded application?
+------
+How to make a collection read only?
+How to make a collection thread safe?
+While passing a Collection as argument to a function, how can we make sure the function will not be able to modify it?
+How can we create a synchronized collection from given collection?
+Why there is not method like Iterator.add() to add elements to the collection?
+What are different ways to iterate over a list?
+What do you understand by iterator fail-fast property?
+What is difference between fail-fast and fail-safe?
+How to avoid ConcurrentModificationException while iterating a collection?
+What is UnsupportedOperationException?
+Which collection classes provide random access of it’s elements?
+What is BlockingQueue?
+What is Queue and Stack, list their differences?
+What are Collections and Arrays class?
+---------
+How to Use Map and Filter in Java 8
+Java 8 Map + Filter + Collect Example
+
+Thread
+---------------------
+What is Thread in java?
+What is difference between Process and Thread in java?
+How to implement Threads in java?
+What is the difference between calling wait() and sleep()?
+What is the difference between notify and notifyAll in Java? write down a program to prove the point.
+Why wait, notify and notifyAll are not inside thread class?  
+Why wait and notify method are called from synchronized block?
+What does yield method of Thread class do?
+Differences & similarity between yield() and sleep().
+What is the difference between the volatile and atomic variable in Java?
+What is an atomic operation in Java?
+What is a use of synchronized keyword? What is the difference between synchronized and volatile keywords?
+Difference between object lock and class lock?
+What is double checked locking of Singleton? 
+What is race condition in multithreading and how can we solve it?
+What is the difference between synchronized and ReentrantLock in Java?
+What is the difference between synchronized and concurrent collection in Java?
+Why is ConcurrentHashMap faster than Hashtable in Java?
+
+How do you handle an unhandled exception in the thread?
+You have thread T1, T2, and T3. How will you ensure that thread T2 is run after T1 and thread T3 after T2?
+What is the advantage of the new Lock interface over a synchronized block in Java?
+What is race condition in Java? Given one example
+How do you share data between two thread in Java
+What is the difference between CountDownLatch and CyclicBarrier in Java?
+Why is the Executor framework better than creating and managing threads via the application?
+What is the difference between submit() and execute() method of Executor and ExecutorService in Java?
+Difference between Executor and Executors in Java? 
+What is ReentrantLock in Java? Have you used it before?
+What is ReadWriteLock in Java? What is the benefit?
+
+
+Suppose you have 2 threads on same object. Thread-1 is in synchronized method1(), can Thread-2 enter synchronized method2() at same time? -> NO
+Suppose you have 2 threads on same object. Thread-1 is in static synchronized method1(), can Thread-2 enter static synchronized method2() at same time? -> NO
+Suppose you have 2 threads on same object. Thread-1 is in synchronized method1(), can Thread-2 enter static synchronized method2() at same time? -> YES
+Suppose you have thread and it is in synchronized method and now can thread enter other synchronized method from that method? -> YES
+Suppose you have thread and it is in static synchronized method and now can thread enter other static synchronized method from that method? -> YES
+Suppose you have thread and it is in static synchronized method and now can thread enter other non static synchronized method from that method?
+-> YES
+Suppose you have thread and it is in synchronized method and now can thread enter other static synchronized method from that method? -> YES
+Suppose you have 2 threads (Thread-1 on object1 and Thread-2 on object2). Thread-1 is in synchronized method1(), can Thread-2 enter synchronized method2() at same time? -> YES
+Suppose you have 2 threads (Thread-1 on object1 and Thread-2 on object2). Thread-1 is in static synchronized method1(), can Thread-2 enter static synchronized method2() at same time? -> YES
+
+Write code to implement blocking queue in Java?
+Write code to solve the produce consumer problem in Java? 
+Write a program that will result in a deadlock. How will you fix deadlock in Java?
+Write code to avoid deadlock in Java where N threads are accessing N shared resources? 
+
+https://www.javamadesoeasy.com/2015/03/threads-top-75-interview-questions-and_9.html
+
+Oops
+---------------------
+What is Abstraction?
+What is Encapsulation?
+Difference between interfaces and abstract classes?
+What is Polymorphism?
+What is Inheritance?
+What is multiple inheritance?
+What is the diamond problem in inheritance?
+Why Java does not support multiple inheritance?
+What is Static Binding and Dynamic Binding?
+
+What is method overriding in OOP or Java
+What is method hiding in Java
+Can we overload a static method in Java yes
+Can we override static method in Java no
+Can we prevent overriding a method without using the final modifier
+
+Spring
+-----------------------
+1. What is Spring Framework? What are it’s main modules?
+2. What are the benefits of using Spring Framework?
+3. What is Inversion of Control (IoC) and Dependency Injection?
+4. Explain IoC in Spring Framework?
+5. Difference between BeanFactory and ApplicationContext?
+6. In how many ways, you can configure Spring into our application?
+7. What is Spring XML-Based Configuration?
+8. What is Spring Java-Based Configuration?
+9. What is Spring Annotation-based Configuration?
+10. Explain Spring Bean lifecycle?
+11. What are different Spring Bean Scopes?
+12. What are inner beans in Spring?
+13. Are Singleton beans thread safe in Spring Framework?
+14. How can you inject a Java Collection in Spring? Give example?
+15. How to inject a java.util.Properties into a Spring Bean?
+16. Explain Spring Bean Autowiring?
+17. Explain different modes of bean autowiring?
+18. How do you turn on annotation based autowiring?
+19. Explain @Required annotation with example?
+20. Explain @Autowired annotation with example?
+21. Explain @Qualifier annotation with example?
+22. Difference between constructor injection and setter injection?
+23. What are the different types of events in spring framework?
+24. Difference between FileSystemResource and ClassPathResource?
+25. Name some of the design patterns used in Spring Framework?
+
+What is Spring AOP?
+What is the difference between concern and cross-cutting concern in Spring AOP?
+What are the available AOP implementations?
+What are the different advice types in spring?
+What is Spring AOP Proxy?
+What is Introduction?
+What is joint point and Point cut?
+What is Weaving in AOP?

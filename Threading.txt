@@ -1,0 +1,95 @@
+Multi Threading
+1.	2 Ways to define Thread
+		1.	Thread Class
+		2.	Runnable interface
+
+2.	Getting and setting Thread Name
+
+3.	Thread Priority
+
+4.	Methods to prevent Thread execution
+	1. yield()
+	2. join()
+	3. sleep()
+
+5.	Synchronization
+	To execute "static synchronized" method thread needs class level lock
+	To execute "synchronized" method thread needs object level lock
+	
+6.	Inter Thread Communication
+	1. wait()
+	2. notify()
+	3. notifyall()
+
+7.	Deadlock
+
+8.	Demo Thread
+
+
+
+9.	Multi Threading enhancement
+
+-----------------------------------------------------------------------------------
+different yield() || join() || sleep()
+
+yield() method pause current executing thread & give the chance to other waiting Thread of same priority. If there is no waiting thread or all waiting Thread has low priority then same Thread can continue its execution.
+
+If Multiple thread are waiting with same priority which thread get chance, it depends on scheduler.
+
+-----------------------------------------------------------------------------------
+
+Synchronization
+---------------
+
+
+
+ThreadGroup
+-----------
+Thread group contains a group of threads. In addition to thread,threadgroup can also contains sub threadgroups.
+
+Exp 1 GroupName:
+Thread.currentThread().getThreadGroup().getName()  => main
+Exp 2 ParentName:
+Thread.currentThread().getThreadGroup().getParent().getName()	=> system
+
+System ThreadGroup contains several system level thread:
+--------------------------------------------------------
+1. Finalizer
+2. Reference handler
+3. Signal Dispatcher
+4. Attach Listener
+....
+
+ThreadGroup is java class & present in java.lang package & child class of Object
+ThreadGroup group = new ThreadGroup("First Group");
+
+
+================================================================================
+Lock Interface
+================================================================================
+A java.util.concurrent.locks.Lock is a thread synchronization mechanism just like synchronized blocks.ReentrantLock is one such implementation of Lock interface.
+
+Lock Interface Methods
+----------------------
+	-  	void lock();
+	-	void lockInterruptibly()
+	-	boolean tryLock();
+	-	boolean tryLock(long time, TimeUnit unit)
+	-	void unlock();
+ReentrantLock Methods
+----------------------	
+	-	int getHoldCount()
+	-	int getQueueLength()
+	-	boolean isHeldByCurrentThread()
+	-	boolean isLocked()
+	-	boolean isFair()
+	-	Thread getOwner()
+	
+Exp:-
+		Lock lock = new ReentrantLock();
+		
+		lock.lock();
+		
+		//critical section
+ 
+		lock.unlock();

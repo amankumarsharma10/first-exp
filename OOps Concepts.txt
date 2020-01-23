@@ -1,0 +1,150 @@
+Topics
+---------------------------------------------
+1.	Data Hiding
+2.	Abstraction
+3. 	Encapsulation
+4.	Tightly Encapsulated class(all variable private)
+5.	IS-A Relationship(Inheritance)
+6.	HAS-A Relationship
+7.	Method Signature
+8.	Overloading
+9.	Overriding
+10.	static control flow
+11.	Instance control flow
+12.	Constructor
+13.	Cohesion
+14.	Coupling
+15.	Type Casting
+
+------------------------------------------------------------------------------------
+
+Data Hiding: 	We can achieve this by declaring data member(variable) as "private".
+	The Main advantage of data hiding id security.
+	
+	Exp: class Account{
+			private double balance;
+			public double getBalance(){
+				// validation
+				return balance;
+			}
+		}
+		
+Abstraction:	
+
+IS-A Relationship(Inheritance)::
+--------------------------------
+	Using "extends"
+	Advantage -> Code Re-usability
+
+Cyclic Inheritance: It is not allowed in java
+	It will give compile time error.  
+	Exp1: class A extends B{
+		}
+		class B extends A{
+		}
+		Compile Time Error:: Cycle detected: a cycle exists in the type hierarchy between B and A
+		
+	Exp2: class A extends A{
+		}
+		Compile Time Error:: Cycle detected: the type A cannot extend/implement itself or one of its own member types
+		
+HAS-A Relationship(Composition or Aggregation) ::
+------------------------------------------------
+	It Is also called Composition or Aggregation. There is no specific keyword to implement HAS-A relation but most of the time we are depending on "new" keyword.
+	Exp::
+		class Car{
+			Engine e = new Engine();
+		}
+		class Engine{
+		}
+	Car HAS-A Engine Reference
+	
+Method Signature::
+-----------------
+	Method Signature consist of Method Name followed by argument type.
+	
+	In Overloading method signature must be different.
+	In Overriding method signature must be same.
+	
+	Exp:: method(int a, float b)
+	
+	
+Overloading::
+------------------
+ CASE 1::
+	Automatic Promotion in Overloading while resolving overloaded method, If exact matched method is not available then compiler will promote argument to the next level and check whether matched method available or not. If matched method available then it will be considered, If matched method not available then compiler promote the argument to the next level, this process will be continued until all possible promotion. If still matched method not available then  we will get compile time error.
+	
+	Following are all possible promotion in overloading:
+	byte -> short -> int -> long -> float -> double
+	char -> int -> long -> float -> double
+	
+ CASE 2::
+	public void m1(String s) {
+		System.out.println("String-Arg");
+	}
+	public void m1(Object o) {
+		System.out.println("Object-Arg");
+	}
+	
+	public static void main(String[] args) {
+		TestObject t =new TestObject();
+		t.m1(new Object());
+		t.m1("aman");
+		t.m1(null);   //Child class get priority
+	}
+	Output: 
+		Object-Arg
+		String-Arg
+		String-Arg
+		
+ CASE 3::
+	public void m1(String s) {
+		System.out.println("String-Arg");
+	}
+	
+	public void m1(StringBuffer s) {
+		System.out.println("StringBuffer-Arg");
+	}
+	
+	public static void main(String[] args) {
+		TestObject1 t =new TestObject1();
+		t.m1("aman"); //String-Arg
+		t.m1(new StringBuffer());  // StringBuffer-Arg
+		t.m1(null);//The method m1(String) is ambiguous for the type Test1
+	}
+	
+	Compile Time Error:: The method m1(String) is ambiguous for the type Test1
+	Because String and StringBuffer are at same level
+
+ CASE 4:
+	public void m1(int a,float b) {
+		System.out.println("int float");
+	}
+	
+	public void m1(float b, int a) {
+		System.out.println("float int");
+	}
+	
+	public static void main(String[] args) {
+		TestObject1 t =new TestObject1();
+		t.m1(10,5.9f); //int float
+		t.m1(5.6f,10);  // float int
+		t.m1(10,10);//The method m1(int, float) is ambiguous for the type Test1
+		t.m1(10.2f,5.9f); //The method m1(float, int) in the type Test1 is not applicable for the arguments (float, float)
+	}
+	
+	Exp1:
+	public int m1(int a) {
+		return 0;
+	}
+	public void m1(int b) {
+	}
+	Compile Time Error:: Duplicate method m1(int) in type Test.
+	
+	Exp2:
+	public int m1(int a) {
+		return 0;
+	}
+	public void m1(double b) {
+	}
+	No Error

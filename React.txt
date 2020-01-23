@@ -1,0 +1,19 @@
+state is use to change the component at run time
+
+Transfer data from App.js to Person.js
+In App.js  
+<Person /> no agr passing
+<Person name="Aman" age="26" /> // passing properties to Person component
+
+//Person Component
+import React from "react";
+const person = (props) => { //Recieving properties from App.js
+ console.log(props);
+  return (
+    <p>This is Person!!!, I'm {Math.floor(Math.random() * 30)} year old</p>
+  );
+}
+
+
+
+PropType is use to validate the props
